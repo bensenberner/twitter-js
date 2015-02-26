@@ -5,7 +5,11 @@ var app = express()
 app.use(morgan('dev'))
 
 app.get('/', function (req, res) {
-    res.send('hello, world!')
+    res.send('Hello, world!')
+})
+
+app.get('/news', function (req, res) {
+    res.send('Hot off the presses: Yang wins Fields Medal!')
 })
 
 var server = app.listen(3000, function() {
