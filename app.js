@@ -1,7 +1,8 @@
 var express = require( 'express' )
 var morgan = require( 'morgan' )
+var routes = require( './routes/' );
 var swig = require( 'swig' )
-var app = express()
+var app = express();
 
 app.use(morgan('dev'))
 app.engine('html', swig.renderFile);
@@ -9,19 +10,9 @@ app.set('view engine', 'html')
 app.set('views', __dirname + '/views')
 swig.setDefaults({ cache: false });
 
-//app.get('/', function (req, res) {
-    //res.send('Hello, world!')
-//})
-
 var people = [{name: "Full"}, {name: 'Stacker'}, {name: "Son"}];
 
-app.get('/', function (req, res) {
-  res.render( 'index', {title: 'Hall of Fame', people: people} );
-});
-
-app.get('/news', function (req, res) {
-    res.send('Hot off the presses: Yang wins Fields Medal!')
-})
+app.use('/', routes);
 
 var server = app.listen(3000, function() {
   var host = server.address().address
