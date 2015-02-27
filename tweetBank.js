@@ -1,16 +1,22 @@
 var _ = require('underscore');
 var data = [];
+var incrementer = 0;
 
 var add = function (name, text) {
-  data.push({ name: name, text: text, img: "http://icons.iconarchive.com/icons/icons-land/vista-style-emoticons/128/Laugh-icon.png" });
+  data.push({ username: incrementer, name: name, text: text, img: "http://icons.iconarchive.com/icons/icons-land/vista-style-emoticons/128/Laugh-icon.png" });
+  incrementer = incrementer + 1;
 };
 
 var list = function () {
   return _.clone(data);
 }
 
-var find = function (longthing, properties) {
-  return _.where(longthing, properties);
+var find = function (properties) {
+  var kanye =  _.where(data, properties);
+  //console.log(properties);
+  //console.log(data);
+  //var test = _.where(data, {username: 1});
+  return kanye;
 };
 
 module.exports = { add: add, list: list, find: find };
