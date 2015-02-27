@@ -7,15 +7,16 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
+        <img src="https://cdn4.iconfinder.com/data/icons/general13/png/128/administrator.png"><br>
       <b>Your Name</b><br>
-      100 followers
+      1000 followers
     </div>
     <div class="col-md-9">
     
       <!-- display tweets here -->
+      <h4>All Tweets</h4>
       {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
+      <li> <img src={{tweet.img}}>{{tweet.text}}</li>
       {% endfor %}
       
     </div>

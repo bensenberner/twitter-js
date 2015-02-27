@@ -2,15 +2,15 @@ var _ = require('underscore');
 var data = [];
 
 var add = function (name, text) {
-  data.push({ name: name, text: text });
+  data.push({ name: name, text: text, img: "http://icons.iconarchive.com/icons/icons-land/vista-style-emoticons/128/Laugh-icon.png" });
 };
 
 var list = function () {
   return _.clone(data);
 }
 
-var find = function (properties) {
-  return _.where(data, properties);
+var find = function (longthing, properties) {
+  return _.where(longthing, properties);
 };
 
 module.exports = { add: add, list: list, find: find };
@@ -34,4 +34,8 @@ for(var i=0; i<10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 
+var bwist = [{big: "boy"}, {dank: "jokes"}]
+var thing = module.exports.find(bwist, {dank: "jokes"});
+
 console.log(data);
+console.log(thing);

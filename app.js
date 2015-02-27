@@ -13,6 +13,7 @@ swig.setDefaults({ cache: false });
 var people = [{name: "Full"}, {name: 'Stacker'}, {name: "Son"}];
 
 app.use('/', routes);
+app.use(express.static(__dirname + '/public'));
 
 var server = app.listen(3000, function() {
   var host = server.address().address
